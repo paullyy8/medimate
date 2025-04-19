@@ -44,8 +44,9 @@ body {
     overflow: hidden;
 }
 .container .form-outer form {
-    display: flex;
-    width: calc(100% * var(--stepNumber));
+  display: flex;
+  width: calc(100% * var(--stepNumber));
+  transition: transform 0.3s ease-in-out; 
 }
 .form-outer form .page {
     width: calc(100% / var(--stepNumber));
