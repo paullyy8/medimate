@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
 }
+
 body{
     display: flex;
     justify-content: center;
@@ -13,6 +14,7 @@ body{
     min-height: 100vh;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
+
 .login-box{
     display: flex;
     justify-content: center;
@@ -21,15 +23,18 @@ body{
     height: 480px;
     padding: 30px;
 }
+
 .login-header{
     text-align: center;
     margin: 20px 0 40px 0;
 }
+
 .login-header header{
     color: #333;
     font-size: 30px;
     font-weight: 600;
 }
+
 .input-box .input-field{
     width: 100%;
     height: 60px;
@@ -42,67 +47,89 @@ body{
     outline: none;
     transition: .3s;
 }
+
 ::placeholder{
     font-weight: 500;
     color: #222;
 }
+
 .input-field:focus{
     width: 105%;
 }
+
 .forgot{
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
 }
+
 section{
     display: flex;
     align-items: center;
     font-size: 14px;
     color: #555;
 }
+
 #check{
     margin-right: 10px;
 }
+
 a{
     text-decoration: none;
 }
+
 a:hover{
     text-decoration: underline;
 }
+
 section a{
     color: #555;
 }
+
 .input-submit{
     position: relative;
 }
-.submit-btn{
+
+/* ✅ Sign In Button with reduced height */
+.submit-btn {
     width: 100%;
-    height: 60px;
-    background: #222;
+    height: 50px; /* 👈 Changed from 65px to 50px */
     border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: .3s;
-}
-.input-submit label{
-    position: absolute;
-    top: 45%;
-    left: 50%;
+    background: #330867;
+    border-radius: 5px;
     color: #fff;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.5s ease;
 }
-.submit-btn:hover{
+
+.submit-btn:hover {
     background: #000;
-    transform: scale(1.05,1);
+    transform: scale(1.03);
 }
+
+.input-submit label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
 .sign-up-link{
     text-align: center;
     font-size: 15px;
     margin-top: 20px;
 }
+
 .sign-up-link a{
     color: #000;
     font-weight: 600;
