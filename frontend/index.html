@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediMate | Dashboard</title>
+    <title>MediMate | Health Dashboard</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,29 +22,48 @@
         </div>
     </nav>
 
-    <!-- Dashboard Content -->
+    <!-- Main Dashboard -->
     <main class="dashboard">
         <div class="welcome-card">
             <h1>Hello User,</h1>
-            <p>Welcome to your MediMate Dashboard</p>
+            <p>Your health companion is ready to assist</p>
             <div class="divider"></div>
-            <div class="quick-stats">
-                <div class="stat-card">
-                    <i class="fas fa-calendar-check"></i>
-                    <h3>Appointments</h3>
-                    <span>5</span>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-prescription-bottle-alt"></i>
-                    <h3>Medications</h3>
-                    <span>12</span>
-                </div>
-                <div class="stat-card">
-                    <i class="fas fa-file-medical"></i>
-                    <h3>Records</h3>
-                    <span>8</span>
-                </div>
+            
+            <!-- Feature Grid -->
+            <div class="feature-grid">
+                <!-- Symptom Checker -->
+                <a href="#symptom-checker" class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Symptom Analysis</h3>
+                    <p>Check possible conditions</p>
+                </a>
+                
+                <!-- Hospital Finder -->
+                <a href="#hospital-finder" class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Nearby Hospitals</h3>
+                    <p>Find emergency care</p>
+                </a>
+                
+                <!-- Report Generator -->
+                <a href="#health-report" class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>Health Report</h3>
+                    <p>Generate insights</p>
+                </a>
             </div>
+        </div>
+        
+        <!-- Eco Tip -->
+        <div class="eco-tip">
+            <i class="fas fa-leaf"></i>
+            <p>Did you know? Returning unused medicines to pharmacies helps prevent water contamination.</p>
         </div>
     </main>
 </body>
