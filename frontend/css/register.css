@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
 * {
     margin: 0;
     padding: 0;
     outline: none;
     font-family: "Poppins", sans-serif;
 }
+
 :root {
     --primary: #330867;
     --secondary: #330867;
@@ -23,40 +25,49 @@ body {
     overflow-x: hidden;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
+
 ::selection {
     color: #fff;
     background: var(--primary);
 }
-.container {    
+
+.container {
     width: var(--containerWidth);
     background: #fff;
     text-align: center;
     padding: 50px 35px 10px 35px;
     box-shadow: rgba(0, 0, 0, 0.4) 0 5px 15px;
+    border-radius: 10px;
 }
+
 .container header {
     font-size: 35px;
     font-weight: 600;
     margin: 0 0 30px 0;
 }
+
 .container .form-outer {
     width: 100%;
     overflow: hidden;
 }
+
 .container .form-outer form {
-  display: flex;
-  width: calc(100% * var(--stepNumber));
-  transition: transform 0.3s ease-in-out; 
+    display: flex;
+    width: calc(100% * var(--stepNumber));
+    transition: transform 0.3s ease-in-out;
 }
+
 .form-outer form .page {
     width: calc(100% / var(--stepNumber));
     transition: margin-left 0.3s ease-in-out;
 }
+
 .form-outer form .page .title {
     text-align: left;
     font-size: 25px;
     font-weight: 500;
 }
+
 .form-outer form .page .field {
     width: var(--containerWidth);
     height: 45px;
@@ -64,11 +75,13 @@ body {
     display: flex;
     position: relative;
 }
+
 form .page .field .label {
     position: absolute;
     top: -30px;
     font-weight: 500;
 }
+
 form .page .field input {
     box-sizing: border-box;
     height: 100%;
@@ -80,15 +93,18 @@ form .page .field input {
     font-size: 18px;
     transition: border-color 150ms ease;
 }
+
 form .page .field input.invalid-input {
     border-color: var(--errorColor);
 }
+
 form .page .field select {
     width: 100%;
     padding-left: 10px;
     font-size: 17px;
     font-weight: 500;
 }
+
 form .page .field button {
     width: 100%;
     height: calc(100% + 5px);
@@ -104,35 +120,43 @@ form .page .field button {
     text-transform: uppercase;
     transition: 0.5s ease;
 }
+
 form .page .field button:hover {
     background: #000;
 }
+
 form .page .btns button {
     margin-top: -20px !important;
 }
+
 form .page .btns button.prev {
     margin-right: 3px;
     font-size: 17px;
 }
+
 form .page .btns button.next {
     margin-left: 3px;
 }
+
 .container .progress-bar {
     display: flex;
     margin: 40px 0;
     user-select: none;
 }
+
 .container .progress-bar .step {
     text-align: center;
     width: 100%;
     position: relative;
 }
+
 .container .progress-bar .step p {
     font-weight: 500;
     font-size: 18px;
     color: #000;
     margin-bottom: 8px;
 }
+
 .progress-bar .step .bullet {
     height: 25px;
     width: 25px;
@@ -145,18 +169,22 @@ form .page .btns button.next {
     font-size: 17px;
     line-height: 25px;
 }
+
 .progress-bar .step .bullet.active {
     border-color: var(--primary);
     background: var(--primary);
 }
+
 .progress-bar .step .bullet span {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
+
 .progress-bar .step .bullet.active span {
     display: none;
 }
+
 .progress-bar .step .bullet:before,
 .progress-bar .step .bullet:after {
     position: absolute;
@@ -167,25 +195,30 @@ form .page .btns button.next {
     width: 44px;
     background: #262626;
 }
+
 .progress-bar .step .bullet.active:after {
     background: var(--primary);
     transform: scaleX(0);
     transform-origin: left;
     animation: animate 0.3s linear forwards;
 }
+
 @keyframes animate {
     100% {
         transform: scaleX(1);
     }
 }
+
 .progress-bar .step:last-child .bullet:before,
 .progress-bar .step:last-child .bullet:after {
     display: none;
 }
+
 .progress-bar .step p.active {
     color: var(--primary);
     transition: 0.2s linear;
 }
+
 .progress-bar .step .check {
     position: absolute;
     left: 50%;
@@ -194,9 +227,44 @@ form .page .btns button.next {
     transform: translate(-50%, -50%);
     display: none;
 }
+
 .progress-bar .step .check.active {
     display: block;
     color: #fff;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1200px) {
+    :root {
+        --containerWidth: 450px;
+    }
+    .container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --containerWidth: 400px;
+    }
+    .container {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --containerWidth: 350px;
+    }
+    .container {
+        width: 80%;
+    }
+    .progress-bar {
+        flex-direction: column;
+    }
+    .progress-bar .step {
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (max-width: 660px) {
@@ -229,6 +297,7 @@ form .page .btns button.next {
         justify-content: center;
     }
 }
+
 @media screen and (max-width: 490px) {
     :root {
         --containerWidth: 100%;
@@ -236,5 +305,20 @@ form .page .btns button.next {
     .container {
         box-sizing: border-box;
         border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    :root {
+        --containerWidth: 100%;
+    }
+    .container {
+        padding: 40px 25px 10px 25px;
+    }
+    .container header {
+        font-size: 30px;
+    }
+    .form-outer form .page .title {
+        font-size: 22px;
     }
 }
