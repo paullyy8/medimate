@@ -69,18 +69,24 @@ body {
     outline: none;
 }
 
-.input-box i {
+.input-box .icon {
     position: absolute;
     top: 50%;
     left: 15px;
     transform: translateY(-50%);
     color: #777;
+    font-size: 16px;
 }
 
 .toggle-password {
+    position: absolute;
+    top: 50%;
     right: 15px;
-    left: auto;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 16px;
     cursor: pointer;
+    z-index: 2;
 }
 
 /* Forgot Section */
@@ -125,14 +131,17 @@ body {
 .or-divider {
     margin: 20px 0;
     position: relative;
+    text-align: center;
 }
 
 .or-divider span {
+    display: inline-block;
     padding: 0 10px;
     background: #fff;
     position: relative;
     z-index: 1;
     color: #777;
+    font-size: 14px;
 }
 
 .or-divider::before {
@@ -165,9 +174,9 @@ body {
     background: #f8f9fa;
 }
 
-.google-btn img {
-    width: 20px;
-    height: 20px;
+.google-icon {
+    color: #DB4437;
+    font-size: 18px;
 }
 
 /* Sign Up Link */
@@ -191,5 +200,19 @@ body {
     .login-box {
         width: 90%;
         padding: 30px 25px;
+    }
+    
+    .login-header header {
+        font-size: 24px;
+    }
+    
+    .input-field {
+        height: 45px;
+        font-size: 15px;
+    }
+    
+    .submit-btn, .google-btn {
+        height: 45px;
+        font-size: 15px;
     }
 }
