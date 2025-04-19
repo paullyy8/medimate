@@ -15,6 +15,7 @@
         <div class="nav-buttons">
             <button class="profile-btn">
                 <i class="fas fa-user-circle"></i> Profile
+                <div class="health-status" data-status="good"></div>
             </button>
             <button class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i> Logout
@@ -32,8 +33,8 @@
             <!-- Feature Grid -->
             <div class="feature-grid">
                 <!-- Symptom Checker -->
-                <a href="#symptom-checker" class="feature-card">
-                    <div class="feature-icon">
+                <a href="#symptom-checker" class="feature-card" style="--order: 1">
+                    <div class="feature-icon" data-tooltip="Analyze symptoms">
                         <i class="fas fa-stethoscope"></i>
                     </div>
                     <h3>Symptom Analysis</h3>
@@ -41,8 +42,8 @@
                 </a>
                 
                 <!-- Hospital Finder -->
-                <a href="#hospital-finder" class="feature-card">
-                    <div class="feature-icon">
+                <a href="#hospital-finder" class="feature-card" style="--order: 2">
+                    <div class="feature-icon" data-tooltip="Locate nearby care">
                         <i class="fas fa-hospital"></i>
                     </div>
                     <h3>Nearby Hospitals</h3>
@@ -50,21 +51,59 @@
                 </a>
                 
                 <!-- Report Generator -->
-                <a href="#health-report" class="feature-card">
-                    <div class="feature-icon">
+                <a href="#health-report" class="feature-card" style="--order: 3">
+                    <div class="feature-icon" data-tooltip="Generate health insights">
                         <i class="fas fa-file-medical"></i>
                     </div>
                     <h3>Health Report</h3>
                     <p>Generate insights</p>
                 </a>
+
+                <!-- Prescription Decoder -->
+                <a href="#prescription" class="feature-card" style="--order: 4">
+                    <div class="feature-icon" data-tooltip="Decode medical instructions">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                    </div>
+                    <h3>Prescription AI</h3>
+                    <p>Decode instructions</p>
+                </a>
+
+                <!-- Eco Tips -->
+                <a href="#eco-tips" class="feature-card" style="--order: 5">
+                    <div class="feature-icon" data-tooltip="Sustainable wellness tips">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco Health Tips</h3>
+                    <p>Green practices</p>
+                </a>
+
+                <!-- Emergency Guide -->
+                <a href="#emergency" class="feature-card" style="--order: 6">
+                    <div class="feature-icon" data-tooltip="First aid protocols">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>Emergency Guide</h3>
+                    <p>Crisis procedures</p>
+                </a>
             </div>
         </div>
         
-        <!-- Eco Tip -->
+        <!-- Dynamic Eco Tip -->
         <div class="eco-tip">
             <i class="fas fa-leaf"></i>
             <p>Did you know? Returning unused medicines to pharmacies helps prevent water contamination.</p>
         </div>
     </main>
+
+    <!-- Emergency Ribbon -->
+    <div class="emergency-ribbon">
+        <span>Emergency Help</span>
+        <div class="hotlines">
+            <a href="tel:108"><i class="fas fa-phone-alt"></i> Medical: 108</a>
+            <a href="tel:102"><i class="fas fa-ambulance"></i> Ambulance: 102</a>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
 </body>
 </html>

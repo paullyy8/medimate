@@ -4,6 +4,11 @@
   --secondary: #1a0633;
   --text-dark: #2d3748;
   --text-light: #ffffff;
+  --emergency-red: #e74c3c;
+  --eco-green: #27ae60;
+  --status-good: #2ecc71;
+  --status-medium: #f39c12;
+  --status-caution: #e74c3c;
   --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --button-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -21,6 +26,7 @@ body {
   background: var(--bg-gradient);
   min-height: 100vh;
   color: var(--text-dark);
+  padding-bottom: 40px;
 }
 
 /* Navbar */
@@ -48,6 +54,7 @@ body {
 .nav-buttons {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .profile-btn, .logout-btn {
@@ -64,6 +71,8 @@ body {
 .profile-btn {
   background: white;
   color: var(--primary);
+  position: relative;
+  padding-right: 30px;
 }
 
 .logout-btn {
@@ -76,7 +85,22 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Dashboard Content */
+.health-status {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.health-status[data-status="good"] { background: var(--status-good); }
+.health-status[data-status="medium"] { background: var(--status-medium); }
+.health-status[data-status="caution"] { background: var(--status-caution); }
+
+/* Dashboard */
 .dashboard {
   padding: 8rem 3rem 3rem;
   max-width: 1200px;
@@ -119,6 +143,7 @@ body {
 }
 
 .feature-card {
+  --order: 1;
   background: white;
   border-radius: 8px;
   padding: 1.8rem 1rem;
@@ -127,6 +152,14 @@ body {
   text-decoration: none;
   color: var(--text-dark);
   border: 1px solid rgba(51, 8, 103, 0.1);
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: calc(var(--order) * 0.1s);
+  position: relative;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 .feature-card:hover {
@@ -145,6 +178,22 @@ body {
   font-size: 1.5rem;
   color: white;
   background: var(--primary);
+  position: relative;
+}
+
+.feature-icon:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 10;
 }
 
 .feature-card h3 {
@@ -172,8 +221,16 @@ body {
 }
 
 .eco-tip i {
-  color: #27ae60;
+  color: var(--eco-green);
   font-size: 1.2rem;
+  animation: gentlePulse 2s infinite;
+  animation-delay: 30s;
+}
+
+@keyframes gentlePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .eco-tip p {
@@ -181,7 +238,50 @@ body {
   font-style: italic;
 }
 
-/* Responsive Adjustments */
+/* Emergency Ribbon */
+.emergency-ribbon {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--emergency-red);
+  color: white;
+  text-align: center;
+  padding: 8px;
+  transition: all 0.3s;
+  height: 40px;
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emergency-ribbon:hover {
+  height: 80px;
+}
+
+.emergency-ribbon > span {
+  font-weight: 600;
+}
+
+.hotlines {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 5px;
+  width: 100%;
+}
+
+.hotlines a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .navbar {
       padding: 15px 25px;
@@ -200,7 +300,16 @@ body {
   }
   
   .feature-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+  }
+  
+  .emergency-ribbon:hover {
+      height: 100px;
+  }
+  
+  .hotlines {
+      flex-direction: column;
+      gap: 5px;
   }
 }
 
@@ -210,9 +319,18 @@ body {
       font-size: 0.85rem;
   }
   
+  .feature-grid {
+      grid-template-columns: 1fr;
+  }
+  
   .feature-icon {
       width: 50px;
       height: 50px;
       font-size: 1.2rem;
+  }
+  
+  .health-status {
+      width: 10px;
+      height: 10px;
   }
 }
