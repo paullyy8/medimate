@@ -107,26 +107,74 @@ app.get("/login", (req, res) => {
   });
 
 // 1. Symptom to Disease
-app.post("/predict-disease", async (req, res) => {
-  const { symptoms } = req.body;
-  const prompt = `User has symptoms: ${symptoms}. What are the 3 possible diseases and why?`;
+// Add this route to your existing Express server
+app.post('/analyze-symptoms', async (req, res) => {
+  const { symptoms, age, gender } = req.body;
+  
+  console.log("Received request with:", { symptoms, age, gender }); // Debug log
+
+  const prompt = `You are DoctorGPT, an AI medical assistant. Analyze these symptoms for a ${age}-year-old ${gender}:
+"${symptoms}"
+
+Provide concise medical analysis in this exact format without deviation:
+
+Possible Medical Conditions:
+1. [Condition Name] - [1-sentence explanation of why it matches]
+2. [Condition Name] - [1-sentence explanation of why it matches] 
+3. [Condition Name] - [1-sentence explanation of why it matches]
+
+Urgency Level:
+[🟢 Mild/🟡 Moderate/🔴 Severe] - [Explanation]
+
+Recommended Actions:
+- [First action]
+- [Second action]
+- [Third action]
+
+When to Seek Emergency Care:
+❗ [Warning sign 1]
+❗ [Warning sign 2]`;
+
   try {
     const result = await queryHuggingFace(prompt);
-    res.json({ result });
+    console.log("AI Response:", result); // Debug log
+    
+    // Handle different HuggingFace response formats
+    const diagnosis = result.generated_text || result[0]?.generated_text || result;
+    
+    res.json({ 
+      success: true,
+      diagnosis: diagnosis 
+    });
   } catch (err) {
-    res.status(500).json({ error: "Error predicting disease" });
+    console.error("Analysis error:", err);
+    res.status(500).json({ 
+      success: false,
+      error: "Analysis failed. Please try again." 
+    });
   }
 });
 
-// 2. Lifestyle Plan
-app.post("/generate-plan", async (req, res) => {
-  const { lifestyle } = req.body;
-  const prompt = `Based on this lifestyle: ${lifestyle}, suggest a healthy daily diet and 3 habits to improve health.`;
+app.post('/generate-health-plan', async (req, res) => {
+  const { age, activity, diet, sleep, stress } = req.body;
+  const prompt = `Create a personalized health plan for:
+  - Age: ${age}
+  - Activity: ${activity}
+  - Diet: ${diet}
+  - Sleep: ${sleep}
+  - Stress: ${stress}
+  
+  Provide: 
+  1. 3 dietary recommendations
+  2. 2 exercise suggestions
+  3. 1 sleep improvement tip
+  4. 1 stress reduction technique`;
+  
   try {
     const result = await queryHuggingFace(prompt);
     res.json({ result });
   } catch (err) {
-    res.status(500).json({ error: "Error generating plan" });
+    res.status(500).json({ error: "Plan generation failed" });
   }
 });
 
