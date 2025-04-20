@@ -113,27 +113,35 @@ app.post('/analyze-symptoms', async (req, res) => {
   
   console.log("Received request with:", { symptoms, age, gender }); // Debug log
 
-  const prompt = `You are DoctorGPT, an AI medical assistant. Analyze these symptoms for a ${age}-year-old ${gender}:
-"${symptoms}"
+  const prompt = `Act as a senior doctor. For a patient with these symptoms: "${symptoms}" (${age} years old, ${gender}), provide:
 
-Provide concise medical analysis in this exact format without deviation:
+1. Top 3 possible conditions (format as "1. [Condition] - [1-sentence explanation]")
+2. Urgency level (choose one: Mild/Moderate/Severe)
+3. Recommended actions (3 bullet points)
+4. Red flags (2 warning signs)
 
-Possible Medical Conditions:
-1. [Condition Name] - [1-sentence explanation of why it matches]
-2. [Condition Name] - [1-sentence explanation of why it matches] 
-3. [Condition Name] - [1-sentence explanation of why it matches]
+Example response:
+1. Migraine - Throbbing headache often with light sensitivity
+2. Tension headache - Band-like pressure around head
+3. Sinusitis - Facial pain with nasal congestion
 
-Urgency Level:
-[🟢 Mild/🟡 Moderate/🔴 Severe] - [Explanation]
+Urgency: Moderate
 
-Recommended Actions:
-- [First action]
-- [Second action]
-- [Third action]
+Actions:
+- Rest in dark room
+- Take pain relievers
+- Stay hydrated
 
-When to Seek Emergency Care:
-❗ [Warning sign 1]
-❗ [Warning sign 2]`;
+Red flags:
+- Sudden worst headache of life
+- Fever with neck stiffness`;
+
+// Add this to ensure better responses
+const options = {
+  temperature: 0.7,  // Controls randomness (0-1)
+  max_length: 500,   // Maximum response length
+  do_sample: true    // Enables better response generation
+};
 
   try {
     const result = await queryHuggingFace(prompt);

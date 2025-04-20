@@ -1,27 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MediMate</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediMate - Your AI Health Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #330867;
+            --secondary: #30cfd0;
+            --accent: #5b86e5;
+            --text: #2c3e50;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-signup {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 80px 10%;
+            min-height: 70vh;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--text);
+            opacity: 0.8;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .cta {
+            text-align: center;
+            padding: 100px 10%;
+            background: linear-gradient(135deg, #e4e8f0 0%, #f5f7fa 100%);
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">MediMate</div>
-    <div class="nav-buttons">
-      <a href="/login.html" class="transparent-btn">Login</a>
-      <a href="/register.html" class="transparent-btn">Register</a>
-    </div>    
-  </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">MediMate</div>
+        <div class="auth-buttons">
+            <button class="btn btn-login" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+            <button class="btn btn-signup" onclick="window.location.href='register.html'">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </button>
+        </div>
+    </nav>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Stay Healthy</h1>
-      <a href="#" class="get-started-btn">Get Started</a>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Your AI-Powered Health Companion</h1>
+            <p class="hero-subtitle">
+                Get instant symptom analysis, personalized health insights, 
+                and medical guidance anytime, anywhere.
+            </p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3 class="feature-title">Symptom Analysis</h3>
+                    <p>Get possible conditions based on your symptoms with our AI doctor.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3 class="feature-title">Hospital Finder</h3>
+                    <p>Locate nearby medical facilities with emergency services.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3 class="feature-title">Health Reports</h3>
+                    <p>Generate personalized health plans based on your lifestyle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2 class="cta-title">Ready to Take Control of Your Health?</h2>
+        <button class="btn btn-signup" style="padding: 15px 30px; font-size: 18px;"
+                onclick="window.location.href='register.html'">
+            Get Started for Free
+        </button>
+    </section>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

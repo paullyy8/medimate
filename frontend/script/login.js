@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
               const data = await res.json();
               
               if (res.ok) {
-                  alert(data.message || 'Login successful!');
                   window.location.href = './index.html';
               } else {
                   alert(data.message || 'Login failed');

@@ -379,6 +379,7 @@ button[type="submit"]:disabled {
 
 .diagnosis-result {
   line-height: 1.6;
+  font-size: 16px;
 }
 
 .error-message {
@@ -402,6 +403,35 @@ button[type="submit"]:disabled {
 
 .diagnosis-result li {
   margin-bottom: 5px;
+}
+
+
+.condition {
+  margin-bottom: 12px;
+  padding-left: 10px;
+  border-left: 3px solid #3498db;
+}
+
+.condition-number {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.urgency-mild { color: #2ecc71; }
+.urgency-moderate { color: #f39c12; }
+.urgency-severe { color: #e74c3c; }
+
+.warning-flag {
+  color: #e74c3c;
+  margin-right: 5px;
+}
+
+.medical-disclaimer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+  font-size: 14px;
+  color: #666;
 }
 
 /* Responsive */

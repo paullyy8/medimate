@@ -120,31 +120,50 @@ document.getElementById('symptomForm').addEventListener('submit', async (e) => {
 
 // Helper function to format diagnosis
 function formatDiagnosis(text) {
-  // Clean up the AI response
+  // First, normalize the text
   let cleaned = text
-    .replace(/\d+\.\s/g, '\n$&') // Add newlines before numbered items
-    .replace(/\n\n/g, '\n'); // Remove double newlines
+    .trim()
+    .replace(/\n{2,}/g, '\n') // Reduce multiple newlines
+    .replace(/\t/g, ' ')      // Replace tabs with spaces
+    .replace(/ +/g, ' ');     // Reduce multiple spaces
 
-  // Convert markdown-style headers to HTML
+  // Handle different response formats
+  if (!text.includes('1.') && !text.includes('-')) {
+    // If response doesn't follow expected format, wrap it in paragraphs
+    return `<div class="diagnosis-text">${cleaned.replace(/\n/g, '</p><p>')}</p></div>`;
+  }
+
+  // Convert medical response to HTML
   cleaned = cleaned
-    .replace(/### (.*?)\n/g, '<h4>$1</h4>')
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Sections with headers
+    .replace(/(Possible Conditions|Urgency Level|Recommended Actions|Red Flags|When to Seek Emergency Care):/g, '<h4>$1:</h4>')
+    
+    // Numbered conditions
+    .replace(/(\d+)\.\s+(.*?)\s-\s(.*?)(\n|$)/g, '<div class="condition"><span class="condition-number">$1.</span> <strong>$2</strong> - $3</div>')
+    
+    // Bullet points
+    .replace(/\n-\s(.*?)(\n|$)/g, '<li>$1</li>')
+    .replace(/\n•\s(.*?)(\n|$)/g, '<li>$1</li>')
+    
+    // Urgency indicators
+    .replace(/🟢/g, '<span class="urgency-mild">🟢</span>')
+    .replace(/🟡/g, '<span class="urgency-moderate">🟡</span>')
+    .replace(/🔴/g, '<span class="urgency-severe">🔴</span>')
+    .replace(/❗/g, '<span class="warning-flag">⚠️</span>')
+    
+    // Final cleanup
+    .replace(/\n/g, '<br>')
+    .replace(/<li>.*?<\/li>/g, '<ul>$&</ul>');
 
-  // Convert lists to HTML
-  cleaned = cleaned
-    .replace(/\n-/g, '\n•')
-    .replace(/\n• (.*?)(\n|$)/g, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>');
-
-  // Preserve numbered lists
-  cleaned = cleaned
-    .replace(/\n(\d+)\. (.*?)(\n|$)/g, '<li>$1. $2</li>')
-    .replace(/(<li>\d+\..*<\/li>)/g, '<ol>$1</ol>');
-
-  // Add proper spacing
-  cleaned = cleaned.replace(/\n/g, '<br>');
-
-  return cleaned;
+  // Add disclaimer
+  return `
+    <div class="diagnosis-result">
+      ${cleaned}
+      <div class="medical-disclaimer">
+        <p>Note: This AI analysis is not a substitute for professional medical advice.</p>
+      </div>
+    </div>
+  `;
 }
 
 // Add to index.js
