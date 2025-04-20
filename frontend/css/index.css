@@ -281,6 +281,159 @@ body {
   gap: 5px;
 }
 
+/* Symptom Modal Styles */
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #f8f9fa;
+  margin: 5% auto;
+  padding: 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.modal h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #333;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+button[type="submit"]:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Result Styles */
+#symptomResult {
+  margin-top: 25px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 5px;
+  border-left: 4px solid #3498db;
+}
+
+.diagnosis-result {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.diagnosis-result h4 {
+  color: #2c3e50;
+  margin: 15px 0 8px 0;
+  font-size: 1.1em;
+}
+
+.diagnosis-result h4.emergency {
+  color: #e74c3c;
+}
+
+.diagnosis-result ul {
+  padding-left: 20px;
+}
+
+.diagnosis-result li {
+  margin-bottom: 5px;
+}
+
+
+.condition {
+  margin-bottom: 12px;
+  padding-left: 10px;
+  border-left: 3px solid #3498db;
+}
+
+.condition-number {
+  color: #3498db;
+  font-weight: bold;
+}
+
+.urgency-mild { color: #2ecc71; }
+.urgency-moderate { color: #f39c12; }
+.urgency-severe { color: #e74c3c; }
+
+.warning-flag {
+  color: #e74c3c;
+  margin-right: 5px;
+}
+
+.medical-disclaimer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+  font-size: 14px;
+  color: #666;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .navbar {

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medimate - Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .profile-card {
+      background-color: white;
+      width: 90%;
+      max-width: 500px;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #3caea3;
+    }
+
+    .profile-info input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .profile-info input[disabled] {
+      background-color: #e9ecef;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .edit-btn {
+      background-color: #3caea3;
+      color: white;
+    }
+
+    .save-btn {
+      background-color: #0077b6;
+      color: white;
+    }
+
+    .cancel-btn {
+      background-color: #adb5bd;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <div class="profile-header">
+      <img src="https://via.placeholder.com/80" alt="Profile Picture" class="profile-pic" />
+      <h2 id="userName">John Doe</h2>
+    </div>
+
+    <div class="profile-info">
+      <label>Email</label>
+      <input type="email" id="email" value="john@example.com" disabled />
+
+      <label>Phone</label>
+      <input type="text" id="phone" value="+1 234 567 8901" disabled />
+
+      <label>Date of Birth</label>
+      <input type="date" id="dob" value="1995-06-15" disabled />
+
+      <label>Address</label>
+      <input type="text" id="address" value="123 Main St, City" disabled />
+    </div>
+
+    <div class="buttons">
+      <button class="btn edit-btn" onclick="toggleEdit(true)">Edit</button>
+      <div style="display: none;" id="editButtons">
+        <button class="btn save-btn" onclick="saveChanges()">Save</button>
+        <button class="btn cancel-btn" onclick="toggleEdit(false)">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll('.profile-info input');
+    const editBtn = document.querySelector('.edit-btn');
+    const editButtons = document.getElementById('editButtons');
+
+    function toggleEdit(editMode) {
+      inputs.forEach(input => input.disabled = !editMode);
+      editBtn.style.display = editMode ? 'none' : 'inline-block';
+      editButtons.style.display = editMode ? 'flex' : 'none';
+    }
+
+    function saveChanges() {
+      const updatedData = {
+        name: document.getElementById('userName').innerText,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        dob: document.getElementById('dob').value,
+        address: document.getElementById('address').value,
+      };
+
+      console.log("Saved Data:", updatedData);
+      // You can make an API call here to save it on the server
+      toggleEdit(false);
+    }
+  </script>
+
+</body>
+</html>

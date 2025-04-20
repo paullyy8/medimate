@@ -48,16 +48,16 @@
                 </div>
             </div>
             <div class="form-outer">
-                <form action="#">
+                <form action="" id="registerForm">
                     <div class="page slide-page">
                         <div class="title">Name:</div>
                         <div class="field">
                             <div class="label">First Name</div>
-                            <input type="text" required />
+                            <input type="text" id="firstName" required />
                         </div>
                         <div class="field">
                             <div class="label">Last Name</div>
-                            <input type="text" required />
+                            <input type="text" id="lastName" required />
                         </div>
                         <div class="field">
                             <button class="firstNext next">Next</button>
@@ -68,11 +68,11 @@
                         <div class="title">Contact:</div>
                         <div class="field">
                             <div class="label">Email Address</div>
-                            <input type="text" required />
+                            <input type="text" id="email" required />
                         </div>
                         <div class="field">
                             <div class="label">Phone Number</div>
-                            <input type="Number" required />
+                            <input type="Number" id="phoneNumber" required />
                         </div>
                         <div class="field btns">
                             <button class="prev-1 prev">Previous</button>
@@ -83,11 +83,11 @@
                         <div class="title">Birth:</div>
                         <div class="field">
                             <div class="label">Birthdate</div>
-                            <input type="date" required />
+                            <input type="date" id="birthDate" required />
                         </div>
                         <div class="field">
                             <div class="label">Gender</div>
-                            <select required>
+                            <select required id="gender">
                                 <option>Male</option>
                                 <option>Female</option>
                                 <option>Other</option>
@@ -98,7 +98,7 @@
                             <button class="next-2 next">Next</button>
                         </div>
                     </div>
-                    <div class="page">
+                    <!-- <div class="page">
                         <div class="title">Address:</div>
                         <div class="field">
                             <div class="label">Complete Address</div>
@@ -112,21 +112,21 @@
                             <button class="prev-3 prev">Previous</button>
                             <button class="next-3 next">Next</button>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="page">
                         <div class="title">Login Details:</div>
                         <div class="field">
                             <div class="label">Username</div>
-                            <input type="text" required />
+                            <input type="text" id="username" required />
                         </div>
                         <div class="field">
                             <div class="label">Password</div>
-                            <input type="password" required />
+                            <input type="password" name="password" id="password" required />
                         </div>
                         <div class="field btns">
                             <button class="prev-4 prev">Previous</button>
-                            <button class="submit">Submit</button>
+                            <button class="submit" type="button">Submit</button>
                         </div>
                     </div>
                 </form>

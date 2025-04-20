@@ -1,1 +1,2 @@
-# H4B
+# Medimate
+## Your Personal Health Assisstance
