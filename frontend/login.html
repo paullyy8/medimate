@@ -13,9 +13,10 @@
         <div class="login-header">
             <header>Login to your account</header>
         </div>
+      <form id="loginForm">
         <div class="input-box">
             <i class="fas fa-envelope icon"></i>
-            <input type="email" class="input-field" placeholder="Email" autocomplete="off" required>
+            <input type="email" id="email" class="input-field" placeholder="Email" autocomplete="off" required>
         </div>
         <div class="input-box">
             <i class="fas fa-lock icon"></i>
@@ -31,7 +32,8 @@
                 <a href="#">Reset Password</a>
             </section>
         </div>
-        <button class="submit-btn">Sign In</button>
+        <button class="submit-btn" type="submit" id="signInButton">Sign In</button>
+      </form>
         <div class="or-divider">
             <span>OR</span>
         </div>
