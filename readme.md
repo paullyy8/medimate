@@ -83,5 +83,3 @@ Check out the live application: [MediMate Live]()
 ## 📫 Contact
 
 For any inquiries or feedback, please reach out to us via our social media handles. 
-
-```
