@@ -1,0 +1,10 @@
+/* Variables */
+:root {
+  --primary: #330867;
+  --secondary: #1a0633;
+  --text-dark: #2d3748;
+  --text-light: #ffffff;
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
