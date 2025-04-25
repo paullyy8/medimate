@@ -255,24 +255,7 @@ h1 {
   height: 100px;
 }
 
-/* Stats Section */
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  padding: 80px 20px;
-  background: var(--bg-gradient);
-}
 
-.stat-item {
-  text-align: center;
-}
-
-.stat-item h3 {
-  font-size: 3rem;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
 
 /* Responsive */
 @media (max-width: 1024px) {
