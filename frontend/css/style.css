@@ -297,3 +297,134 @@ h1 {
       gap: 30px;
   }
 }
+/* Footer Styles */
+.site-footer {
+  background: var(--secondary);
+  color: var(--text-light);
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-right {
+  flex: 2;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footer-tagline {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-icon {
+  color: white;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.footer-col {
+  min-width: 150px;
+}
+
+.footer-col h4 {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--primary);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: 0.6rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.footer-col a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+      flex-direction: column;
+      gap: 2rem;
+  }
+  
+  .footer-right {
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+  
+  .footer-col h4::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+}
