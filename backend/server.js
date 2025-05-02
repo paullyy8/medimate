@@ -62,6 +62,10 @@ app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/register.html"));
   });
   
+  app.get("/logout", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/logout.html"));
+  });
+
   // POST Register
   app.post("/register", async (req, res) => {
     try {
