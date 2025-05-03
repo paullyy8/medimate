@@ -1,83 +1,44 @@
-<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - MediMate</title>
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/logos/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Cards</title>
+  <link rel="stylesheet" href="/frontend/css/contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="/assets/logo-mockup.ico" alt="MediMate" width="40">
-            <span>MediMate</span>
-        </div>
-        <div class="nav-buttons">
-            <a href="index.html" class="btn-secondary">
-                <i class="fas fa-arrow-left"></i> Back Home
-            </a>
-        </div>
-    </nav>
 
-    <!-- Contact Section -->
-    <main class="contact-main">
-        <div class="team-section">
-            <h2 class="section-title animate-slide-up">Our Development Team</h2>
-            
-            <div class="profiles-container">
-                <!-- Amit Paul Card -->
-                <div class="profile-card animate-float">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <div class="avatar-frame">
-                                <img src="https://via.placeholder.com/150" alt="Amit Paul" class="avatar">
-                                <div class="hover-shine"></div>
-                            </div>
-                            <h3 class="name">Amit Paul</h3>
-                            <p class="role">Frontend Developer</p>
-                            <div class="social-link">
-                                <a href="https://github.com/amitpaul" target="_blank" class="github-btn">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-glow"></div>
-                </div>
+  <div class="wrapper">
+    <!-- Profile Card 1 -->
+    <div class="container">
+      <div class="img-container">
+        <img src="https://avatars.githubusercontent.com/u/129642624?v=4" alt="Amit Paul">
+      </div>
+      <ul class="social-media">
+        <li><a href="https://github.com/paullyy8" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+      <div class="user-info">
+        <h2>Amit Paul</h2>
+        <span>Front End Developer, UI/UX Designer</span>
+      </div>
+    </div>
 
-                <!-- Ayesha Naaz Card -->
-                <div class="profile-card animate-float delay-1">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <div class="avatar-frame">
-                                <img src="https://via.placeholder.com/150" alt="Ayesha Naaz" class="avatar">
-                                <div class="hover-shine"></div>
-                            </div>
-                            <h3 class="name">Ayesha Naaz</h3>
-                            <p class="role">Backend Developer</p>
-                            <div class="social-link">
-                                <a href="https://github.com/ayeshanaaz" target="_blank" class="github-btn">
-                                    <i class="fab fa-github"></i> GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-glow"></div>
-                </div>
-            </div>
-        </div>
-    </main>
+    <!-- Profile Card 2 -->
+    <div class="container">
+      <div class="img-container">
+        <img src="https://avatars.githubusercontent.com/u/84725003?v=4" alt="Ayeesha Naaz">
+      </div>
+      <ul class="social-media">
+        <li><a href="https://github.com/aishanaaz19" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+      <div class="user-info">
+        <h2>Ayeesha Naaz</h2>
+        <span>Backend Developer, Logical Programmer</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <!-- Include the same footer from previous answer -->
-    </footer>
-
-    <script src="js/contact.js"></script>
 </body>
 </html>
